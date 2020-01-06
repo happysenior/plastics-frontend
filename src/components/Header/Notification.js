@@ -51,7 +51,7 @@ export default class Notification extends Component {
             }}
           >
             <span className="notification-avatar">
-              {item.category === "FOLLOWED" ? (
+              {item.category === "FOLLOWED" || item.category === "NEW_ORDER" ? (
                 item.Actor.avatar && item.Actor.avatar !== "" ? (
                   <img className="avatar" src={item.Actor.avatar} alt="" />
                 ) : (
@@ -65,7 +65,7 @@ export default class Notification extends Component {
               )}
             </span>
             <span className="noitification-text">
-              {item.category === "FOLLOWED" ? (
+              {item.category === "FOLLOWED" || item.category === "NEW_ORDER" ? (
                 <span className="link-text">{actorName}</span>
               ) : null}
               {item.content}

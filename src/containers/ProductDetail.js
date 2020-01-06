@@ -195,6 +195,7 @@ class ProductDetail extends Component {
           {!loadingData && (
             <React.Fragment>
               <ProductView
+                history={this.props.history}
                 productDetail={listingData}
                 sellerData={sellerData}
                 onClick={this.onWishList}

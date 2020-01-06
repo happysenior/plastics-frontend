@@ -54,7 +54,7 @@ class WishList extends Component {
     <div className="container px-2  mb-3">
       <div className="wishlist-notification">
         <span>
-          You have saved <span className="checklis_count">{counts}</span>{" "}
+          You have saved <span className="checklis_count">{counts}</span>
           <span id="items_to_view">offers</span> to view
         </span>
       </div>

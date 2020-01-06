@@ -71,7 +71,6 @@ class UploadVideoForm extends React.Component {
       : null;
     return (
       <div className="container mt-2">
-        <span className="video-name">{isUpload ? data.name : videoName}</span>
         <Button
           outline={true}
           size="sm"
@@ -80,6 +79,7 @@ class UploadVideoForm extends React.Component {
           color="#ff0000"
           borderColor="danger"
         />
+        <span className="video-name">{isUpload ? data.name : videoName}</span>
       </div>
     );
   };

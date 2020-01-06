@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Swiper from "react-id-swiper";
+var Translate = require("react-redux-i18n").Translate;
 
 class ProductSliderBlock extends Component {
   render = () => {
@@ -74,12 +75,26 @@ class ProductSliderBlock extends Component {
                 </div>
                 <div className="card-info-footer">
                   <div className="card-price">
-                    <span
-                      ref={spanRef => {
-                        if (spanRef) spanRef.innerHTML = item.Currency.symbol;
-                      }}
-                    />
-                    {item.pricePerUnit}/{item.unit === "mt" ? "t" : item.unit}
+                    {item.status === "Active" && (
+                      <div>
+                        <span
+                          ref={spanRef => {
+                            if (spanRef) spanRef.innerHTML = item.Currency.symbol;
+                          }}
+                        />
+                        {item.pricePerUnit}/{item.unit === "mt" ? "t" : item.unit}
+                      </div>
+                    )}
+                    {item.status === "Pending" && (
+                      <div>
+                        <span>- -</span>
+                      </div>
+                    )}
+                    {item.isAuction && (
+                      <span className="auc-sign">
+                        <Translate value="auction.sign" />
+                      </span>
+                    )}
                   </div>
                   <div className="card-location">{item.formatted_address}</div>
                 </div>

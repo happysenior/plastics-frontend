@@ -7,7 +7,7 @@ function ProductImage(props) {
       <Link className="fancybox-link" to="#">
         <img
           width="100%"
-          height="100%"
+          height="350px"
           src={props.imgLink}
           alt={props.imgAlt}
         />

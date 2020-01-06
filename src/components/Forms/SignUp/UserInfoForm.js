@@ -200,10 +200,10 @@ class UserInfoForm extends React.Component {
           </Link>
         </label>
       </div>
-      {/* <div style={{ color: "#656565" }}>
+      <div style={{ color: "#656565" }}>
         <Translate value="auth.alreay_exist" />&nbsp;
         <Link to="#" onClick={this.props.onClickLogIn}><Translate value="auth.login" /></Link>
-      </div> */}
+      </div>
     </div>
   );
 

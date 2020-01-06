@@ -143,16 +143,16 @@ export const getContactList = data => {
 
       return res.data;
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 };
 
 export const getUnreadMessages = () => {
-  return async dispatch => {
+  return async (dispatch, getState) => {
     const token = localStorage.getItem("plastplace_token");
     const client = Client(token);
-
+    if (!getState().user.isAuthenticated) return
     try {
       const res = await client.get(`${endpoint}/getUnreadMessages`);
 
@@ -160,7 +160,7 @@ export const getUnreadMessages = () => {
 
       return res.data.data;
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 };

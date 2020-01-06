@@ -14,7 +14,7 @@ import { setCurrentPage } from "../actions/user";
 
 class Notifications extends Component {
   componentDidMount = async () => {
-    this.props.setCurrentPage("/notifications")
+    this.props.setCurrentPage("/notifications");
     if (this.props.notificationList && this.props.notificationList.length === 0)
       await this.props.getNewNotificationList("all");
   };
@@ -49,7 +49,8 @@ class Notifications extends Component {
                   <div className="row">
                     <Link className="col-sm-12 col-md-3" to="#">
                       <span className="image-profile">
-                        {item.category === "FOLLOWED" ? (
+                        {item.category === "FOLLOWED" ||
+                        item.category === "NEW_ORDER" ? (
                           item.Actor.avatar && item.Actor.avatar !== "" ? (
                             <img
                               className="avatar"
@@ -69,7 +70,8 @@ class Notifications extends Component {
                           <img className="main-logo" src={mainLogo} alt="" />
                         )}
                       </span>
-                      {item.category === "FOLLOWED" ? (
+                      {item.category === "FOLLOWED" ||
+                      item.category === "NEW_ORDER" ? (
                         <span className="name-span">{actorName}</span>
                       ) : null}
                     </Link>

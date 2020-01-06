@@ -50,6 +50,11 @@ ul {
   color: #ffffff;
   border: 1px solid $green;
 }
+.button-blue {
+  background: $blue;
+  color: #ffffff;
+  border: 1px solid $blue;
+}
 .button.no-border {
   border-color: transparent;
   background: transparent;
@@ -57,6 +62,10 @@ ul {
 .button-outline-primary {
   border: 1px solid $green;
   color: $green;
+}
+.button-outline-blue {
+  border: 1px solid $blue;
+  color: $blue;
 }
 .button-primary:hover {
   -webkit-box-shadow: 0px 0px 5px $green !important;
@@ -68,6 +77,12 @@ ul {
   color: $green;
   -webkit-box-shadow: 0px 0px 5px $green !important;
   box-shadow: 0px 0px 5px $green !important;
+  background: #ffffff !important;
+}
+.button-outline-blue:hover {
+  color: $blue;
+  -webkit-box-shadow: 0px 0px 5px $blue !important;
+  box-shadow: 0px 0px 5px $blue !important;
   background: #ffffff !important;
 }
 .button-white {
@@ -188,4 +203,9 @@ input.select-dropdown {
 }
 .form-control {
   border-radius: 0 !important;
+}
+
+.card-blc {
+  display: flex;
+  flex-wrap: wrap;
 }

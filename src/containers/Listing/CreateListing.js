@@ -39,7 +39,7 @@ class CreateListing extends React.Component {
   initialFormData = {
     images: [null, null, null, null, null],
     video: null,
-    pdf: null,
+    pdf: [],
     material: {
       title: "",
       description: "",
@@ -219,13 +219,7 @@ class CreateListing extends React.Component {
             data.forEach((item, index) => {
               if (item) newListing.append(key, item);
             });
-          } else {
-            if (key === "pdf" && formData[key]) {
-              for (let item of Object.keys(formData[key])) {
-                newListing.append(key, formData[key][item]);
-              }
-            } else newListing.append(key, data);
-          }
+          } else newListing.append(key, data);
         }
       }
 
@@ -366,7 +360,7 @@ class CreateListing extends React.Component {
           data={this.state.video}
           onChange={this.handleChangeVideo}
         />
-        <UploadPDF data={this.state.pdf} onChange={this.handleChangePDF} />
+        <UploadPDF data={this.state.pdf} onChangePDF={this.handleChangePDF} />
       </div>
     </div>
   );

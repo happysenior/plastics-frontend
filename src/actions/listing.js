@@ -142,7 +142,7 @@ export const getListingProperties = userInfo => {
       dispatch(getListingPropertiesSuccess(data.data.data));
       return data.data;
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 };
@@ -238,7 +238,7 @@ export const getListings = filterInfo => {
       dispatch(getListingsSuccess(res.data.data));
       return res.data.data;
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 };
@@ -430,7 +430,7 @@ export const getListingsByWishList = () => {
       dispatch(getListingsByWishListSuccess(res.data.data));
       return res.data.data;
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 };

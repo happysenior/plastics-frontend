@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { unitRates } from "../../utils/constants";
+var Translate = require("react-redux-i18n").Translate;
 
 const Card = props => {
   let price;
@@ -27,25 +28,34 @@ const Card = props => {
             <div className="card-name">{props.data.title}</div>
           </div>
           <div className="card-info-footer">
-            {!props.data.isAuction && (
-              <div className="card-price">
-                <span
-                  ref={symbolRef => {
-                    if (symbolRef)
-                      symbolRef.innerHTML = getCurrencySymbol(
-                        props.filterCurrency
-                          ? props.filterCurrency
-                          : props.data.Currency.code,
-                        props.currencies
-                      );
-                  }}
-                ></span>
-                {price}/{renderUnit}
-              </div>
-            )}
-            {props.data.isAuction && (
-              <div className="card-price"><span>- -</span></div>
-            )}
+            <div className="card-price">
+              {props.data.status === "Active" && (
+                <div>
+                  <span
+                    ref={symbolRef => {
+                      if (symbolRef)
+                        symbolRef.innerHTML = getCurrencySymbol(
+                          props.filterCurrency
+                            ? props.filterCurrency
+                            : props.data.Currency.code,
+                          props.currencies
+                        );
+                    }}
+                  ></span>
+                  {price}/{renderUnit}
+                </div>
+              )}
+              {props.data.status === "Pending" && (
+                <div>
+                  <span>- -</span>
+                </div>
+              )}
+              {props.data.isAuction && (
+                <span className="auc-sign">
+                  <Translate value="auction.sign" />
+                </span>
+              )}
+            </div>
             <div className="card-location">{props.data.formatted_address}</div>
           </div>
         </div>

@@ -8,6 +8,7 @@ const ProductView = props => {
   return (
     <div className="product-view-inner">
       <ProductViewHeader
+        history={props.history}
         productDetail={props.productDetail}
         onClick={props.onClick}
         wishCheck={props.wishCheck}

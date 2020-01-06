@@ -85,8 +85,9 @@
     "user_offers": "Angebot von",
     "similar_offers": "Ähnliche Angebote",
     "see_all": "Alle zeigen",
-    "chat_seller": "Verkäufer kontaktieren"
-
+    "chat_seller": "Verkäufer kontaktieren",
+    "material": "Material",
+    "order": "Ordner"
   },
   "auction": {
     "auction": "Auktion",
@@ -97,7 +98,8 @@
     "init_price": "Anfangspreis je Einheit",
     "auction_interval": "Auktionszeitraum",
     "end_date": "Enddatum & -Zeit",
-    "auction_ended": "Auktion beendet"
+    "auction_ended": "Auktion beendet",
+    "sign": "auk"
   },
   "create_listing": {
     "title": "Liste anlegen",

@@ -4,6 +4,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';
+import "url-search-params-polyfill";
 
 import rootReducer from "./reducers/rootReducer";
 import App from "./App";

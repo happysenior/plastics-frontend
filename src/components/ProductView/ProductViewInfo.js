@@ -19,44 +19,15 @@ class ProductViewInfo extends Component {
 
   renderAdditionalInfo = () => {
     const { productDetail } = this.props;
-    // const correctQty = productDetail.quantity + productDetail.unit;
-    // const charactors = {
-    //   category: productDetail.Category.name,
-    //   condition: productDetail.Condition.name,
-    //   quantity: correctQty,
-    //   supply: productDetail.supply,
-    //   pricing_term: productDetail.PricingTerm.name,
-    //   address: productDetail.address
-    // };
-    // const displayNames = {
-    //   category: I18n.t("common.category"),
-    //   condition: I18n.t("common.condition"),
-    //   quantity: I18n.t("common.quantity"),
-    //   supply: I18n.t("common.supply"),
-    //   pricing_term: I18n.t("common.pricing_terms"),
-    //   address: I18n.t("common.location")
-    // };
-
     return (
-      <div className="col-sm-12 col-md-6 additional-info">
-        {/* <h4 className="info-title">
-          <Translate value="product_detail.details" />
-        </h4>
-        {Object.keys(charactors).map((item, i) => (
-          <div className="additional-info-item" key={item}>
-            <span className="additional-info-item-title">
-              {displayNames[item]}
-            </span>
-            <span className="additional-info-item-description">
-              {charactors[item]}
-            </span>
-          </div>
-        ))} */}
-        <h4 className="info-title"><Translate value="auction.auction" /></h4>
-        {productDetail.isAuction
-          ? this.renderAuction(this.props.auctionData)
-          : null}
-      </div>
+      productDetail.isAuction && (
+        <div className="col-sm-12 col-md-6 auction-blc">
+          <h4 className="info-title">
+            <Translate value="auction.auction" />
+          </h4>
+          {this.renderAuction(this.props.auctionData)}
+        </div>
+      )
     );
   };
 
@@ -65,7 +36,12 @@ class ProductViewInfo extends Component {
       <h4 className="info-title">
         <Translate value="common.seller" />
       </h4>
-      <div className="user-info">
+      <div
+        className="user-info"
+        ref={divRef => {
+          if (divRef) this.sellerBlockHeight = divRef.offsetHeight - 20;
+        }}
+      >
         {this.renderUserInfoAvatar(userInfo)}
         {this.renderUserInfoFooter(userInfo, userId)}
       </div>
@@ -109,7 +85,9 @@ class ProductViewInfo extends Component {
           <p className="country-name">
             {userInfo.Company.Country ? userInfo.Company.Country.name : null}
           </p>
-          {userInfo.type === "PREMIUM" || userInfo.type === "ADMIN" ? this.renderPremium() : null}
+          {userInfo.type === "PREMIUM" || userInfo.type === "ADMIN"
+            ? this.renderPremium()
+            : null}
         </div>
       </div>
     );
@@ -128,7 +106,7 @@ class ProductViewInfo extends Component {
     <div className="user-info-footer">
       {userInfo && userInfo.id !== userId ? (
         <Link
-          className="button button-primary follow"
+          className="button button-blue follow"
           onClick={this.props.onClickFollow}
           to="#"
         >
@@ -141,7 +119,7 @@ class ProductViewInfo extends Component {
       ) : null}
 
       <Link
-        className="button button-outline-primary follow"
+        className="button button-outline-blue follow"
         to={`/profile/${userInfo.id}`}
       >
         <Translate value="product_detail.view_profile" />
@@ -151,6 +129,7 @@ class ProductViewInfo extends Component {
 
   renderAuction = data => (
     <AuctionForm
+      sellerBlockHeight={this.sellerBlockHeight}
       bidAuction={data.bidAuction}
       initialPrice={data.initialPrice}
       data={data.data}

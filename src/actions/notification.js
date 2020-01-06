@@ -47,7 +47,7 @@ export const getNewNotificationList = type => {
       dispatch(getNotificationListSuccess(res.data.data))
       return res.data.data;
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }
 }

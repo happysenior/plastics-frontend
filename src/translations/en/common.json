@@ -85,7 +85,9 @@
     "user_offers": "Offers By",
     "similar_offers": "Similar Offers",
     "see_all": "See All",
-    "chat_seller": "Chat With Seller"
+    "chat_seller": "Chat With Seller",
+    "material": "Material",
+    "order": "Order"
   },
   "auction": {
     "auction": "Auction",
@@ -96,7 +98,8 @@
     "init_price": "Initial price per unit",
     "auction_interval": "Auction Interval",
     "end_date": "Ending date & time",
-    "auction_ended": "Auction ended"
+    "auction_ended": "Auction ended",
+    "sign": "auc"
   },
   "create_listing": {
     "title": "Create A Listing",

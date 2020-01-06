@@ -175,7 +175,7 @@ export function getCurrentUserSession() {
 
       setMessageUserId({ userId: res.data.data.id })(dispatch);
     } catch (err) {
-      console.log(err.message);
+      // console.log(err.message);
       dispatch(fetchingCurrentUserSession(false, false));
     }
   };

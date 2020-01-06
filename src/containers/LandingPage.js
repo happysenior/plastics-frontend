@@ -140,7 +140,7 @@ class LandingPage extends Component {
               blockUp={b => this.setState({ blockUp: b })}
               currentPage={currentPage}
             />
-            <LastPage />
+            <LastPage signup={e => this.toggle("signUp")(e)} />
           </ReactPageScroller>
         )}
         <div className="landing-footer">
@@ -197,10 +197,10 @@ class LandingPage extends Component {
       <MDBBtn
         className="landing-btn"
         onClick={e => {
-          this.toggle("signUp")(e);
+          this.toggle("logIn")(e);
         }}
       >
-        <Translate value="auth.signup" />
+        <Translate value="auth.login" />
       </MDBBtn>
     </div>
   );

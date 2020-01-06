@@ -86,7 +86,7 @@ class AuctionForm extends React.Component {
 
     return (
       <MDBContainer>
-        <div>
+        <div style={{height: this.props.sellerBlockHeight}}>
           {this.renderTimeLeft()}
           {/* {this.renderStartingPrice(textStyle)} */}
           {this.renderCurrentBid(textStyle)}

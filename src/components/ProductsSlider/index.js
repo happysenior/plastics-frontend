@@ -31,7 +31,7 @@ class ProductsSlider extends Component {
           {productSliderTitle}&nbsp;{this.props.userName}
         </h4>
         <div
-          className="button button-outline-primary button-white"
+          className="button button-outline-blue button-white"
           onClick={this.onGoToDashboard}
         >
           <Translate value="product_detail.see_all" />

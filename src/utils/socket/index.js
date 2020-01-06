@@ -34,10 +34,6 @@ const configureSocket = dispatch => {
     dispatch(newNotificationSuccess(data));
   });
 
-  socket.on("NEW_NOTIFICATION", data => {
-    dispatch(newNotificationSuccess(data));
-  });
-
   return socket;
 };
 

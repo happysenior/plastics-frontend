@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ProfileBillboardBlock } from "../../components/User/UserProfile";
 import { EditAccountBlock } from "../../components/User/UpdateUserProfile";
+import LoadingCard from "../../components/LoadingCard";
 import {
   getUserProfile,
   getBusinesstypes,
@@ -19,7 +20,8 @@ class UpdateUserProfile extends Component {
       userInfo: null,
       location: null,
       isUpdate: true,
-      loadingSave: false
+      loadingSave: false,
+      loadingData: false
     };
   }
 
@@ -73,10 +75,11 @@ class UpdateUserProfile extends Component {
     const myId = currentUser
       ? currentUser.id
       : localStorage.getItem("plastplace_userId");
-    if (!myId) this.props.history.push("/")
+    if (!myId) this.props.history.push("/");
     else this.loadingUserProfileData(myId);
   }
   loadingUserProfileData = async id => {
+    this.setState({ loadingData: true });
     try {
       const userProfileData = await this.props.getUserProfile(id);
       const businessTypes = await this.props.getBusinesstypes();
@@ -117,19 +120,22 @@ class UpdateUserProfile extends Component {
       this.setState({
         userData: inputData,
         userInfo: userProfileData,
-        location: location
+        location: location,
+        loadingData: false
       });
     } catch (err) {
       console.log(err);
+      this.setState({ loadingData: false });
     }
   };
   render = () => {
-    const { userData, location, userInfo, loadingSave } = this.state;
+    const { userData, location, userInfo, loadingSave, loadingData } = this.state;
     const { currentUser } = this.props.user;
-    if (!currentUser) return null
+    if (!currentUser) return null;
     return (
       <div className="wrapper-margin">
         <div className="row m-0 profile-page">
+          {loadingData && <LoadingCard />}
           {userInfo && currentUser && (
             <ProfileBillboardBlock
               userInfo={userInfo}

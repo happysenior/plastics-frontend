@@ -25,6 +25,8 @@ import Notifications from "./containers/Notifications";
 import ChatBox from "./containers/ChatBox";
 import Imprint from "./containers/Imprint";
 import Terms from "./containers/Terms";
+import PaymentMethods from "./containers/PaymentMethods";
+import OrderPage from "./containers/Order";
 
 import "./styles/index.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -60,6 +62,7 @@ class App extends Component {
       console.log(err);
     }
   }
+  
   render() {
     const { user } = this.props;
 
@@ -93,6 +96,8 @@ class App extends Component {
             <PrivateRoute path="/wishlist" component={WishList} user={user} />
             <PrivateRoute path="/wanted" component={Wanted} user={user}/>
             <PrivateRoute path="/notifications" component={Notifications} user={user}/>
+            <PrivateRoute path="/payments" component={PaymentMethods} user={user}/>
+            <PrivateRoute path="/order" component={OrderPage} user={user} />
             <PrivateRoute exact path="/*" component={Dashboard} user={user} />
           </Switch>
         </div>
