@@ -27,6 +27,7 @@ import Imprint from "./containers/Imprint";
 import Terms from "./containers/Terms";
 import PaymentMethods from "./containers/PaymentMethods";
 import OrderPage from "./containers/Order";
+import MyOrders from "./containers/MyOrders";
 
 import "./styles/index.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -98,6 +99,7 @@ class App extends Component {
             <PrivateRoute path="/notifications" component={Notifications} user={user}/>
             <PrivateRoute path="/payments" component={PaymentMethods} user={user}/>
             <PrivateRoute path="/order" component={OrderPage} user={user} />
+            <PrivateRoute path="/orders" component={MyOrders} user={user} />
             <PrivateRoute exact path="/*" component={Dashboard} user={user} />
           </Switch>
         </div>

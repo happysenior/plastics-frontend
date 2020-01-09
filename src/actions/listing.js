@@ -430,7 +430,22 @@ export const getListingsByWishList = () => {
       dispatch(getListingsByWishListSuccess(res.data.data));
       return res.data.data;
     } catch (e) {
-      // console.log(e);
+      console.log(e);
+    }
+  };
+};
+
+export const getOrderedListings = () => {
+  return async () => {
+    const token = localStorage.getItem("plastplace_token");
+    const client = Client(token);
+
+    try {
+      const res = await client.get(`${endpoint}/myorders`);
+      
+      return res.data.data;
+    } catch (e) {
+      console.log(e);
     }
   };
 };

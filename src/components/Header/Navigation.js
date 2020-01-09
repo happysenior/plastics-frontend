@@ -19,11 +19,11 @@ const subMenuItems = [
   //   icon: "navigation-menu-icon fas fa-th-large",
   //   click: "following_offers"
   // },
-  // {
-  //   link: "#",
-  //   icon: "navigation-menu-icon fas fa-table",
-  //   click: "my_orders"
-  // },
+  {
+    link: "/orders",
+    icon: "navigation-menu-icon fas fa-table",
+    click: "my_orders"
+  },
   {
     link: "/payments",
     icon: "navigation-menu-icon fas fa-credit-card",

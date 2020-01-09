@@ -38,7 +38,7 @@ class ProductViewHeader extends Component {
           {this.renderShortText()}
           {this.renderDetail()}
           {!productDetail.isAuction && this.renderProductPrice()}
-          {productDetail.UserId !== userId && this.renderOrderButton()}
+          {!productDetail.isOrdered && productDetail.UserId !== userId && this.renderOrderButton()}
           {productDetail.UserId !== userId && this.renderProductInfoAction()}
         </div>
         {pdfUrl.length > 0 ? this.renderPDF(pdfUrl) : null}

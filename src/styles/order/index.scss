@@ -103,36 +103,6 @@
   color: $blue;
   font-weight: 700;
 }
-.payment-none {
-  background: #fff;
-  .payment-none-inner {
-    padding: 30px 30px 30px 30px;
-    text-align: center;
-  }
-  .alert {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    color: $blue;
-    font-size: 20px;
-  }
-  .alert-icon {
-    font-size: 70px;
-  }
-  i {
-    font-size: 70px;
-    color: yellow;
-  }
-  & a:hover {
-    color: #fff
-  } 
-  .action-blc {
-    padding: 40px 40px 40px 40px;
-  }
-  .select-payments {
-    text-decoration: none;
-    font-size: 17px;
-  }
-}
 @media (max-width: 550px) {
   .additional-info {
     padding: 0;

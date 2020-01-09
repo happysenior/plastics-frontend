@@ -91,6 +91,13 @@ class IbanForm extends Component {
       <div className="input-item">
         <IbanElement supportedCountries={["SEPA"]} style={style} />
       </div>
+      <label>
+        BIC 
+        <input
+          type="text"
+          placeholder="DEUTDE2H273"
+        />
+      </label>
     </div>
   );
 

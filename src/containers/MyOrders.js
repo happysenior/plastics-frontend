@@ -6,9 +6,9 @@ import LoadingCard from "../components/LoadingCard";
 import { CardsShow } from "../components/Dashboard";
 import NonePage from "../components/NonePage";
 
-import { getListingsByWishList } from "../actions/listing";
+import { getOrderedListings } from "../actions/listing";
 
-class WishList extends Component {
+class MyOrders extends Component {
   constructor() {
     super();
     this.state = {
@@ -19,15 +19,11 @@ class WishList extends Component {
 
   componentDidMount = async () => {
     this.setState({ loadingData: true });
-    if (this.props.listingData.length === 0)
-      await this.props.getListingsByWishList().then(res => {
-        this.setState({ listingData: res, loadingData: false });
-      });
-    else
-      this.setState({
-        listingData: this.props.listingData,
-        loadingData: false
-      });
+
+    await this.props.getOrderedListings().then(res => {
+      this.setState({ listingData: res, loadingData: false });
+    });
+
   };
 
   render = () => {
@@ -46,7 +42,7 @@ class WishList extends Component {
         )}
       </div>
     ) : (
-      <NonePage page="wishList" />
+      <NonePage page="orders" />
     );
   };
 
@@ -73,12 +69,11 @@ class WishList extends Component {
   );
 }
 const mapStateToProps = state => ({
-  listingData: state.listing.currentListingsByWishList
+  state: state
 });
 
-// import action here and send to props
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ getListingsByWishList }, dispatch);
+  return bindActionCreators({ getOrderedListings }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(WishList);
+export default connect(mapStateToProps, mapDispatchToProps)(MyOrders);

@@ -55,6 +55,11 @@ ul {
   color: #ffffff;
   border: 1px solid $blue;
 }
+.button-blue:hover {
+  -webkit-box-shadow: 0px 0px 5px $blue !important;
+  box-shadow: 0px 0px 5px $blue !important;
+  color: #ffffff;
+}
 .button.no-border {
   border-color: transparent;
   background: transparent;

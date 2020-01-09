@@ -10,7 +10,7 @@ import {
   getPaymentSettings,
   sendConfirmCardOrder
 } from "../../actions/payment";
-import NonePayment from "../../components/Order/NonePayment";
+import NonePage from "../../components/NonePage";
 
 class OrderPage extends React.Component {
   state = {
@@ -41,7 +41,7 @@ class OrderPage extends React.Component {
         />
       </div>
     ) : (
-      <NonePayment />
+      <NonePage page="payment" />
     );
   };
 }
